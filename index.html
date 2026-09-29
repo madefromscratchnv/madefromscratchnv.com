@@ -3,89 +3,365 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Made From Scratch | Bakery &amp; Provisions</title>
-  <meta name="description" content="Made From Scratch Bakery & Provisions in Fernley, Nevada. Handmade, small-batch baked goods and provisions from our roadside stand.">
-  <meta property="og:title" content="Made From Scratch | Bakery & Provisions">
-  <meta property="og:description" content="Handmade, small-batch baked goods and provisions from our roadside stand in Fernley, Nevada.">
-  <meta property="og:image" content="/mfs-home.webp">
-  <meta property="og:type" content="website">
+  <title>Made From Scratch | Bakery & Provisions</title>
+  <meta name="description" content="Made From Scratch Bakery & Provisions in Fernley, Nevada. Handmade, small-batch baked goods, preserves and pantry provisions.">
   <meta name="theme-color" content="#663366">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #f4eddf;
+    :root{
+      --cream:#f4eddf;
+      --cream-2:#ede2cf;
+      --purple:#663366;
+      --ink:#241f1b;
+      --muted:#6f655c;
+      --rule:#c8b79e;
     }
-    body {
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
     }
-    .site {
-      position: relative;
-      width: min(100%, 1200px);
-      line-height: 0;
-      background: #f4eddf;
+    a{color:inherit}
+    .topline{
+      background:var(--purple);
+      color:#fff;
+      text-align:center;
+      padding:10px 18px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
     }
-    .site img {
-      display: block;
-      width: 100%;
-      height: auto;
+    .wrap{
+      width:min(1120px,calc(100% - 36px));
+      margin:0 auto;
     }
-    .hotspot {
-      position: absolute;
-      display: block;
-      z-index: 2;
-      background: transparent;
-      border-radius: 2px;
-      cursor: pointer;
+    header{
+      border-bottom:1px solid var(--rule);
     }
-    .hotspot:focus-visible {
-      outline: 3px solid #663366;
-      outline-offset: 3px;
+    .nav{
+      min-height:104px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:20px;
     }
-    .anchor {
-      position: absolute;
-      left: 0;
-      width: 1px;
-      height: 1px;
-      pointer-events: none;
+    .nav-left,.nav-right{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
     }
-
-    /* Navigation */
-    .shop-nav       { left: 33.4%; top: 2.2%; width: 4.7%; height: 2.8%; }
-    .about-nav      { left: 38.6%; top: 2.2%; width: 5.2%; height: 2.8%; }
-    .stand-nav      { left: 44.0%; top: 2.2%; width: 7.5%; height: 2.8%; }
-    .order-nav      { left: 78.8%; top: 1.9%; width: 13.4%; height: 3.4%; }
-
-    /* Main calls to action */
-    .hero-order     { left: 6.0%;  top: 18.2%; width: 24.5%; height: 2.8%; }
-    .weekly-order   { left: 50.8%; top: 50.1%; width: 19.0%; height: 2.7%; }
-    .provisions     { left: 5.9%;  top: 61.8%; width: 18.2%; height: 2.7%; }
-    .about-stand    { left: 51.6%; top: 77.0%; width: 18.3%; height: 2.7%; }
-
-    #stand { top: 66.0%; }
-
-    @media (max-width: 640px) {
-      .site { width: 100%; }
+    .nav-right{justify-content:flex-end}
+    .nav a{text-decoration:none}
+    .brand{
+      text-align:center;
+      line-height:1;
+      white-space:nowrap;
+    }
+    .brand-main{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:31px;
+      font-weight:700;
+      letter-spacing:.045em;
+    }
+    .brand-sub{
+      display:block;
+      margin-top:8px;
+      font-size:10px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .button{
+      display:inline-block;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:12px;
+      font-weight:700;
+      padding:14px 18px;
+      border:1px solid var(--ink);
+      background:var(--ink);
+      color:#fff;
+    }
+    .button.light{
+      background:transparent;
+      color:var(--ink);
+    }
+    .hero{
+      padding:84px 0 72px;
+      border-bottom:1px solid var(--rule);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:72px;
+      align-items:end;
+    }
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:var(--purple);
+      margin:0 0 18px;
+    }
+    h1{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(48px,7vw,88px);
+      line-height:.96;
+      font-weight:600;
+      letter-spacing:-.025em;
+    }
+    .hero-copy{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:22px;
+      line-height:1.45;
+      margin:0 0 28px;
+      max-width:430px;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .section{
+      padding:64px 0;
+      border-bottom:1px solid var(--rule);
+    }
+    .section-title{
+      margin:0 0 28px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:38px;
+      font-weight:600;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    .card{
+      border:1px solid var(--rule);
+      background:rgba(255,255,255,.24);
+      padding:32px;
+      min-height:245px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .card h2{
+      margin:0 0 12px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:31px;
+      font-weight:600;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      max-width:440px;
+    }
+    .card-link{
+      margin-top:28px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      text-decoration:none;
+    }
+    .goods{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      border:1px solid var(--rule);
+    }
+    .good{
+      padding:26px 22px 28px;
+      min-height:175px;
+      border-right:1px solid var(--rule);
+    }
+    .good:last-child{border-right:none}
+    .good h3{
+      margin:0 0 9px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:22px;
+      font-weight:600;
+    }
+    .good p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .closing{
+      padding:82px 0;
+      text-align:center;
+      background:var(--cream-2);
+    }
+    .closing p{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(30px,4vw,52px);
+      line-height:1.15;
+    }
+    footer{
+      padding:30px 0 38px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    @media(max-width:760px){
+      .nav{
+        grid-template-columns:1fr auto;
+        min-height:88px;
+      }
+      .nav-left{display:none}
+      .brand{text-align:left}
+      .brand-main{font-size:24px}
+      .nav-right a:not(.button){display:none}
+      .hero{padding:56px 0 50px}
+      .hero-grid,.grid-2{grid-template-columns:1fr;gap:36px}
+      .goods{grid-template-columns:1fr 1fr}
+      .good:nth-child(2){border-right:none}
+      .good:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+    }
+    @media(max-width:480px){
+      .wrap{width:min(100% - 24px,1120px)}
+      .goods{grid-template-columns:1fr}
+      .good{border-right:none;border-bottom:1px solid var(--rule)}
+      .good:last-child{border-bottom:none}
+      .card{padding:26px}
+      .button{width:100%;text-align:center}
     }
   </style>
 </head>
 <body>
-  <main class="site" aria-label="Made From Scratch Bakery & Provisions">
-    <img src="/mfs-home.webp" alt="Made From Scratch Bakery & Provisions homepage featuring Northern Nevada, baked goods, preserves, and the roadside stand.">
+  <div class="topline">Handmade · Small Batch · Fernley, Nevada</div>
 
-    <span id="stand" class="anchor" aria-hidden="true"></span>
+  <header>
+    <div class="wrap nav">
+      <nav class="nav-left" aria-label="Primary navigation">
+        <a href="#this-week">This Week</a>
+        <a href="#always">Always at MFS</a>
+      </nav>
 
-    <a class="hotspot shop-nav" href="/order/" aria-label="Shop Made From Scratch"></a>
-    <a class="hotspot about-nav" href="#stand" aria-label="About Made From Scratch"></a>
-    <a class="hotspot stand-nav" href="#stand" aria-label="The Made From Scratch roadside stand"></a>
-    <a class="hotspot order-nav" href="/order/" aria-label="Order ahead"></a>
+      <div class="brand" aria-label="Made From Scratch Bakery & Provisions">
+        <span class="brand-main">MADE FROM SCRATCH</span>
+        <span class="brand-sub">Bakery & Provisions</span>
+      </div>
 
-    <a class="hotspot hero-order" href="/order/" aria-label="View today's selection"></a>
-    <a class="hotspot weekly-order" href="/order/" aria-label="See what's baking"></a>
-    <a class="hotspot provisions" href="/order/" aria-label="Shop provisions"></a>
-    <a class="hotspot about-stand" href="#stand" aria-label="About the stand"></a>
+      <nav class="nav-right">
+        <a href="#stand">The Stand</a>
+        <a class="button" href="/order/">Order Ahead</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Bakery & Provisions</p>
+          <h1>Made here.<br>Made from scratch.</h1>
+        </div>
+        <div>
+          <p class="hero-copy">Fresh baked goods, preserves and pantry provisions from our roadside bakery in Northern Nevada.</p>
+          <div class="actions">
+            <a class="button" href="/order/">Order This Week</a>
+            <a class="button light" href="#stand">The Roadside Stand</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="this-week" class="section">
+      <div class="wrap">
+        <p class="eyebrow">This Week at MFS</p>
+        <h2 class="section-title">Fresh from the bakery.</h2>
+        <div class="grid-2">
+          <article class="card">
+            <div>
+              <h2>The Drop</h2>
+              <p>Weekly bakes and seasonal specials, made in small batches.</p>
+            </div>
+            <a class="card-link" href="/order/">See what’s baking →</a>
+          </article>
+
+          <article class="card">
+            <div>
+              <h2>From the Pantry</h2>
+              <p>Preserves, provisions and the things we keep coming back to.</p>
+            </div>
+            <a class="card-link" href="/order/">Shop provisions →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="always" class="section">
+      <div class="wrap">
+        <p class="eyebrow">Always at MFS</p>
+        <div class="goods">
+          <div class="good">
+            <h3>Baked Goods</h3>
+            <p>Cookies, brownies, breads and seasonal treats.</p>
+          </div>
+          <div class="good">
+            <h3>Preserves</h3>
+            <p>Jams, jellies, fruit butters and small-batch favorites.</p>
+          </div>
+          <div class="good">
+            <h3>Pantry</h3>
+            <p>Useful provisions made for the shelf, the table and the kitchen.</p>
+          </div>
+          <div class="good">
+            <h3>Seasonal</h3>
+            <p>Rotating bakes and provisions inspired by the time of year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stand" class="section">
+      <div class="wrap grid-2">
+        <div>
+          <p class="eyebrow">The Roadside Stand</p>
+          <h2 class="section-title">Fernley, Nevada.</h2>
+        </div>
+        <div>
+          <p class="hero-copy">Made From Scratch is a roadside bakery and provisions stand. Order ahead online, then pick up from the stand.</p>
+          <a class="button" href="/order/">Order Ahead</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <p>Simple things. Done exceptionally well.</p>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>Made From Scratch Bakery & Provisions</span>
+      <span>Fernley, Nevada</span>
+    </div>
+  </footer>
 </body>
 </html>
